@@ -61,6 +61,8 @@ public class WorldsPlugin extends JavaPlugin implements WorldsProvider {
     private final PluginVersionChecker versionChecker = new PluginVersionChecker(this);
     private final Metrics metrics = new Metrics(this, 19652);
 
+    private final boolean foliaCompatible = folia();
+
     @Override
     public void onLoad() {
         if (!presetsFolder().isDirectory()) saveDefaultPresets();
@@ -132,5 +134,14 @@ public class WorldsPlugin extends JavaPlugin implements WorldsProvider {
         Presets.THE_VOID.saveToFile(new File(presetsFolder(), "the-void.json"), true);
         Presets.TUNNELERS_DREAM.saveToFile(new File(presetsFolder(), "tunnelers-dream.json"), true);
         Presets.WATER_WORLD.saveToFile(new File(presetsFolder(), "water-world.json"), true);
+    }
+
+    private boolean folia() {
+        try {
+            Class.forName("io.papermc.paper.threadedregions.RegionizedServer");
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
     }
 }

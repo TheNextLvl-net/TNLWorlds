@@ -36,6 +36,6 @@ public class PaperLevelBuilder implements LevelBuilder {
 
     @Override
     public Level build() {
-        return new PaperLevel(plugin, this);
+        return plugin().foliaCompatible() ? new FoliaLevel(plugin, this) : new PaperLevel(plugin, this);
     }
 }

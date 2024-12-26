@@ -217,8 +217,8 @@ public class PaperLevelView implements LevelView {
         if (level.getDragonFight() != null) {
             level.serverLevelData.setEndDragonFightData(level.getDragonFight().saveData());
         }
-        var save = level.getChunkSource().getDataStorage().scheduleSave();
-        if (!async) save.join();
+        /*var save =*/ level.getChunkSource().getDataStorage().save(async);
+        //if (!async) save.join();
 
         level.serverLevelData.setWorldBorder(level.getWorldBorder().createSettings());
         level.serverLevelData.setCustomBossEvents(level.getServer().getCustomBossEvents().save(level.registryAccess()));

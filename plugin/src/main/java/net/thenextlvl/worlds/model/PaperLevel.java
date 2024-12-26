@@ -127,6 +127,10 @@ public class PaperLevel implements Level {
         if (generator() != null) creator.generator(generator().generator(creator.name()));
         if (generator() != null) creator.biomeProvider(generator().biomeProvider(creator.name()));
 
-        return Optional.ofNullable(creator.createWorld());
+        return Optional.ofNullable(createWorld(creator));
+    }
+
+    protected @Nullable World createWorld(WorldCreator creator) {
+        return creator.createWorld();
     }
 }

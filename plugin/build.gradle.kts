@@ -27,10 +27,11 @@ repositories {
     maven("https://repo.thenextlvl.net/releases")
     maven("https://repo.thenextlvl.net/snapshots")
     maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://github.com/Folia-Inquisitors/FoliaDevBundle/raw/gh-pages/")
 }
 
 dependencies {
-    paperweight.paperDevBundle("1.21.3-R0.1-SNAPSHOT")
+    paperweight.foliaDevBundle("1.21.1-R0.1-SNAPSHOT")
 
     compileOnly("org.projectlombok:lombok:1.18.36")
 
@@ -61,6 +62,7 @@ paper {
     load = BukkitPluginDescription.PluginLoadOrder.STARTUP
     website = "https://thenextlvl.net"
     authors = listOf("NonSwag")
+    foliaSupported = true
 
     permissions {
         register("worlds.commands.admin") {
